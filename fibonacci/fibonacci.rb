@@ -7,28 +7,15 @@ def fibs(n)
   fib_arr
 end
 
-
-def foo(n)
-  if n == 0
-    return 0
-  elsif
-    n == 1
-    return 1
-  else
-    return fibs_rec(n - 1) + fibs_rec(n - 2)
-  end
-
-
-end
-
-def fibs_rec(n, sequence = [])
+def fibs_rec(n, sequence = [0,1])
   if n == 0 
-    return sequence << 0
+    return []
   elsif n == 1
-    return sequence << 1
+    return[0] 
+  elsif n == 2
+    return sequence
   else 
-    return sequence << fibs_rec(n - 1) + fibs_rec(n - 2)
+    sequence << sequence[-1] + sequence[-2]
+    fibs_rec(n - 1, sequence)
   end
 end
-
-p fibs_rec(5)
